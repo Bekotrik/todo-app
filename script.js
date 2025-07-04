@@ -3,8 +3,18 @@ const list = document.getElementById("taskList");
 
 window.onload = () => {
   const savedDark = localStorage.getItem("darkMode");
+  const darkToggle = document.getElementById("darkModeToggle");
+
   if (savedDark === "on") {
     document.body.classList.add("dark");
+    darkToggle.textContent = "☀️";
+  } else if (!savedDark) {
+
+    document.body.classList.add("dark");
+    darkToggle.textContent = "☀️";
+    localStorage.setItem("darkMode", "on");
+  } else {
+    darkToggle.textContent = "🌙";
   }
 
   const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
@@ -58,7 +68,6 @@ function createTaskElement(text, completed) {
   list.appendChild(li);
 }
 
-
 input.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     addTask();
@@ -84,9 +93,13 @@ function filterTasks(filter) {
 }
 
 document.getElementById("darkModeToggle").onclick = () => {
-  document.body.classList.toggle("dark");
-  const isDark = document.body.classList.contains("dark");
+  const body = document.body;
+  body.classList.toggle("dark");
+
+  const isDark = body.classList.contains("dark");
   localStorage.setItem("darkMode", isDark ? "on" : "off");
+
+  document.getElementById("darkModeToggle").textContent = isDark ? "☀️" : "🌙";
 };
 
 function saveTask(text, completed) {

@@ -8,26 +8,22 @@
 </head>
 <body>
 
-  <!-- 🌙 Dark Mode Toggle (Container dışında ve sağ üstte) -->
   <button id="darkModeToggle" title="Tema Değiştir">🌙</button>
 
   <div class="container">
-    <h1>Görev Listem 📝</h1>
+    <h1>To-Do List 📝</h1>
 
-    <!-- Görev Girişi -->
     <div class="input-section">
       <input type="text" id="taskInput" placeholder="Yeni görev ekle..." />
-      <button onclick="addTask()">Ekle</button>
+      <button onclick="addTask()">Add</button>
     </div>
 
-    <!-- Filtre Butonları -->
     <div class="filter-buttons">
-      <button onclick="filterTasks('all')">Tümü</button>
-      <button onclick="filterTasks('active')">Aktif</button>
-      <button onclick="filterTasks('completed')">Tamamlanan</button>
+      <button onclick="filterTasks('all')">All</button>
+      <button onclick="filterTasks('active')">Active</button>
+      <button onclick="filterTasks('completed')">Completed</button>
     </div>
 
-    <!-- Görev Listesi -->
     <ul id="taskList"></ul>
   </div>
 
