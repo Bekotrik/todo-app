@@ -4,6 +4,7 @@ body {
   display: flex;
   justify-content: center;
   padding: 40px;
+  transition: background 0.3s, color 0.3s;
 }
 
 .container {
@@ -30,6 +31,7 @@ input {
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
+  font-size: 16px;
 }
 
 button {
@@ -39,6 +41,7 @@ button {
   color: white;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 16px;
 }
 
 button:hover {
@@ -53,18 +56,126 @@ ul {
 
 li {
   background: #eee;
-  padding: 10px;
+  padding: 12px;
   margin-top: 10px;
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.3s;
 }
 
-li button {
+li:hover {
+  background: #dfe6e9;
+  cursor: move;
+}
+
+.task-text {
+  flex: 1;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.task-text.completed {
+  text-decoration: line-through;
+  color: gray;
+  opacity: 0.7;
+  transition: all 0.2s ease;
+}
+
+.checkmark {
+  font-size: 18px;
+  color: green;
+  visibility: hidden;
+}
+
+.delete-btn {
   background-color: #ff4d4d;
   border: none;
-  padding: 5px 10px;
+  padding: 6px 12px;
   color: white;
-  border-radius: 3px;
+  border-radius: 4px;
+  font-size: 16px;
   cursor: pointer;
+  transition: background 0.3s;
+}
+
+.delete-btn:hover {
+  background-color: #e60000;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.filter-buttons button {
+  flex: 1;
+  padding: 8px;
+  margin: 0 5px;
+  background: #ccc;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filter-buttons button:hover {
+  background: #bbb;
+}
+
+/* 🌙 Dark Mode */
+body.dark {
+  background-color: #121212;
+  color: white;
+}
+
+body.dark .container {
+  background: #1e1e1e;
+}
+
+body.dark input,
+body.dark button {
+  background: #333;
+  color: white;
+  border: 1px solid #555;
+}
+
+body.dark li {
+  background: #2c2c2c;
+}
+
+body.dark .filter-buttons button {
+  background: #444;
+}
+
+
+#darkModeToggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #f4f4f4;
+  border: none;
+  font-size: 22px;
+  padding: 8px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 6px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+#darkModeToggle:hover {
+  background-color: #ddd;
+  transform: scale(1.1);
+}
+
+body.dark #darkModeToggle {
+  background-color: #2c2c2c;
+  color: white;
+}
+
+body.dark #darkModeToggle:hover {
+  background-color: #444;
 }
